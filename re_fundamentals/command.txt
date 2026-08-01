@@ -1,1 +1,1 @@
-readelf -S target_binary | grep '\.hbtn-custom' -A 1 | tail -n 1 | awk '{print strtonum("0x" $1)}' > size.txt
+readelf -S task1 | grep '\.hbtn-custom' -A 1 | tail -n 1 | awk '{print strtonum("0x" $1)}' > size.txt
