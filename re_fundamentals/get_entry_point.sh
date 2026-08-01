@@ -36,7 +36,7 @@ magic_number=$(readelf -h "$file_name" | awk -F: '/Magic:/ {print $2}' | xargs)
 
 class=$(readelf -h "$file_name" | awk '/Class:/ {print $2}')
 
-byte_order=$(readelf -h "$file_name" | awk -F': *' '/Data:/ {print $2}')
+byte_order=$(readelf -h "$file_name" | awk -F': *' '/Data:/ {print $2}' | cut -d ',' -f2 | xargs)
 
 entry_point_address=$(readelf -h "$file_name" | awk '/Entry point address:/ {print $4}')
 
